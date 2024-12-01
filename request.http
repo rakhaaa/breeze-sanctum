@@ -1,0 +1,47 @@
+### login to get the access token
+POST http://localhost:8000/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "password"
+}
+
+### logout user 
+POST http://localhost:8000/logout HTTP/1.1
+Accept: application/json
+
+
+### admin can retrieve all users
+GET http://localhost:8000/api/users HTTP/1.1
+Accept: application/json
+Authorization: Bearer 1|BfyORiG9JBQsfyzpq7kwnNHtzznR8Gb3Jkj8G4Ua080a0c4c
+
+### admin can create a new user
+POST http://localhost:8000/api/users HTTP/1.1
+Accept: application/json
+Authorization: Bearer 1|BfyORiG9JBQsfyzpq7kwnNHtzznR8Gb3Jkj8G4Ua080a0c4c
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "email": "test@example.com",
+    "password": "password",
+    "role": "user"
+}
+
+### admin can update an existing user
+PUT http://localhost:8000/api/users/7 HTTP/1.1
+Accept: application/json
+Authorization: Bearer 1|BfyORiG9JBQsfyzpq7kwnNHtzznR8Gb3Jkj8G4Ua080a0c4c
+Content-Type: application/json
+
+{
+    "name": "Testing Updated"
+}
+
+### admin can delete a user
+DELETE http://localhost:8000/api/users/7 HTTP/1.1
+Accept: application/json
+Authorization: Bearer 1|BfyORiG9JBQsfyzpq7kwnNHtzznR8Gb3Jkj8G4Ua080a0c4c
